@@ -3438,7 +3438,7 @@ actually an xmlCharEncoding}
   function xmlParseExternalEntity (doc: xmlDocPtr; sax: xmlSAXHandlerPtr; user_data: Pointer; depth: Longint; const URL: xmlCharPtr; const ID: xmlCharPtr; lst: xmlNodePtrPtr) : Longint; cdecl; external LIBXML2_SO;
   function xmlParseExternalID (ctxt: xmlParserCtxtPtr; publicID: xmlCharPtrPtr; strict: Longint) : xmlCharPtr; cdecl; external LIBXML2_SO;
   procedure xmlParseExternalSubset (ctxt: xmlParserCtxtPtr; const ExternalID: xmlCharPtr; const SystemID: xmlCharPtr); cdecl; external LIBXML2_SO;
-  function xmlParseFile (const filename: PChar) : xmlDocPtr; cdecl; external LIBXML2_SO;
+  function xmlParseFile (const filename: PAnsiChar) : xmlDocPtr; cdecl; external LIBXML2_SO;
   function xmlParseInNodeContext (node: xmlNodePtr; const data: PChar; datalen: Longint; options: Longint; lst: xmlNodePtrPtr) : xmlParserErrors; cdecl; external LIBXML2_SO;
   procedure xmlParseMarkupDecl (ctxt: xmlParserCtxtPtr); cdecl; external LIBXML2_SO;
   function xmlParseMemory (const buffer: PChar; size: Longint) : xmlDocPtr; cdecl; external LIBXML2_SO;
@@ -3625,8 +3625,8 @@ actually an xmlCharEncoding}
   function xmlSaveFileEnc (const filename: PChar; cur: xmlDocPtr; const encoding: PChar) : Longint; cdecl; external LIBXML2_SO;
   function xmlSaveFileTo (buf: xmlOutputBufferPtr; cur: xmlDocPtr; const encoding: PChar) : Longint; cdecl; external LIBXML2_SO;
   function xmlSaveFlush (ctxt: xmlSaveCtxtPtr) : Longint; cdecl; external LIBXML2_SO;
-  function xmlSaveFormatFile (const filename: PChar; cur: xmlDocPtr; format: Longint) : Longint; cdecl; external LIBXML2_SO;
-  function xmlSaveFormatFileEnc (const filename: PChar; cur: xmlDocPtr; const encoding: PChar; format: Longint) : Longint; cdecl; external LIBXML2_SO;
+  function xmlSaveFormatFile (const filename: PAnsiChar; cur: xmlDocPtr; format: Longint) : Longint; cdecl; external LIBXML2_SO;
+  function xmlSaveFormatFileEnc (const filename: PAnsiChar; cur: xmlDocPtr; const encoding: PAnsiChar; format: Longint) : Longint; cdecl; external LIBXML2_SO;
   function xmlSaveFormatFileTo (buf: xmlOutputBufferPtr; cur: xmlDocPtr; const encoding: PChar; format: Longint) : Longint; cdecl; external LIBXML2_SO;
   function xmlSaveSetAttrEscape (ctxt: xmlSaveCtxtPtr; escape: xmlCharEncodingOutputFunc) : Longint; cdecl; external LIBXML2_SO;
   function xmlSaveSetEscape (ctxt: xmlSaveCtxtPtr; escape: xmlCharEncodingOutputFunc) : Longint; cdecl; external LIBXML2_SO;
