@@ -3361,7 +3361,7 @@ actually an xmlCharEncoding}
   function xmlNewTextReaderFilename (const URI: PChar) : xmlTextReaderPtr; cdecl; external LIBXML2_SO;
   function xmlNewTextWriter (out_: xmlOutputBufferPtr) : xmlTextWriterPtr; cdecl; external LIBXML2_SO;
   function xmlNewTextWriterDoc (doc: xmlDocPtrPtr; compression: Longint) : xmlTextWriterPtr; cdecl; external LIBXML2_SO;
-  function xmlNewTextWriterFilename (const uri: PChar; compression: Longint) : xmlTextWriterPtr; cdecl; external LIBXML2_SO;
+  function xmlNewTextWriterFilename (const uri: PAnsiChar; compression: Longint) : xmlTextWriterPtr; cdecl; external LIBXML2_SO;
   function xmlNewTextWriterMemory (buf: xmlBufferPtr; compression: Longint) : xmlTextWriterPtr; cdecl; external LIBXML2_SO;
   function xmlNewTextWriterPushParser (ctxt: xmlParserCtxtPtr; compression: Longint) : xmlTextWriterPtr; cdecl; external LIBXML2_SO;
   function xmlNewTextWriterTree (doc: xmlDocPtr; node: xmlNodePtr; compression: Longint) : xmlTextWriterPtr; cdecl; external LIBXML2_SO;
@@ -3871,7 +3871,7 @@ actually an xmlCharEncoding}
   function xmlTextWriterStartDTDAttlist (writer: xmlTextWriterPtr; const name: xmlCharPtr) : Longint; cdecl; external LIBXML2_SO;
   function xmlTextWriterStartDTDElement (writer: xmlTextWriterPtr; const name: xmlCharPtr) : Longint; cdecl; external LIBXML2_SO;
   function xmlTextWriterStartDTDEntity (writer: xmlTextWriterPtr; pe: Longint; const name: xmlCharPtr) : Longint; cdecl; external LIBXML2_SO;
-  function xmlTextWriterStartDocument (writer: xmlTextWriterPtr; const version: PChar; const encoding: PChar; const standalone: PChar) : Longint; cdecl; external LIBXML2_SO;
+  function xmlTextWriterStartDocument (writer: xmlTextWriterPtr; const version: PAnsiChar; const encoding: PAnsiChar; const standalone: PAnsiChar) : Longint; cdecl; external LIBXML2_SO;
   function xmlTextWriterStartElement (writer: xmlTextWriterPtr; const name: xmlCharPtr) : Longint; cdecl; external LIBXML2_SO;
   function xmlTextWriterStartElementNS (writer: xmlTextWriterPtr; const prefix: xmlCharPtr; const name: xmlCharPtr; const namespaceURI: xmlCharPtr) : Longint; cdecl; external LIBXML2_SO;
   function xmlTextWriterStartPI (writer: xmlTextWriterPtr; const target: xmlCharPtr) : Longint; cdecl; external LIBXML2_SO;
