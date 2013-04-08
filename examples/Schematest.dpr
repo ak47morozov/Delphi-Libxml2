@@ -1,4 +1,4 @@
-// Оригинал взят тут
+// Original was here
 // https://mail.gnome.org/archives/xml/2007-February/msg00015.html
 
 program Schematest;
@@ -10,7 +10,13 @@ uses
   windows,
   libxml2;
 
-procedure ErrorFunc(ctx: pointer; const msg: PAnsiChar); cdecl;
+
+function GetStrFromError( error : xmlErrorPtr ) : string;
+begin
+  result := 'line:'+ IntToStr( error.line ) + ' - ' + error.message ;
+end;
+
+procedure ErrorFunc(ctx: pointer; const msg: PAnsiChar ); cdecl;
 var
   ptr_args: array[0..100] of Pointer absolute msg;
   buffer: AnsiString;
@@ -25,6 +31,17 @@ begin
     write(PFile(ctx)^, buffer)
   else
     write(buffer);
+end;
+
+procedure StructuredErrorFunc(userData: Pointer; error: xmlErrorPtr); cdecl;
+type
+  PFile = ^Text;
+begin
+  Writeln ( GetStrFromError( error ) );
+  if Assigned(userData) then
+    write(PFile(userData)^, GetStrFromError( error ) )
+  else
+    write( GetStrFromError( error ));
 end;
 
 var
@@ -61,9 +78,8 @@ begin
       else
       begin
         validCtxt := xmlSchemaNewValidCtxt(schema);
-        xmlSchemaSetValidErrors(validCtxt,
-            xmlSchemaValidityErrorFunc(@ErrorFunc),
-            xmlSchemaValidityWarningFunc(@ErrorFunc),
+        xmlSchemaSetValidStructuredErrors(validCtxt,
+            xmlStructuredErrorFunc(@StructuredErrorFunc),
             @logfile);
         ret := xmlSchemaValidateDoc(validCtxt, doc);
         write (ss2);
