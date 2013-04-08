@@ -1966,13 +1966,13 @@ actually an xmlCharEncoding}
       xmlError = record
           domain : Longint; { What part of the library raised this error}
           code : Longint; { The error code, e.g. an xmlParserError}
-          message : PChar; { human-readable informative error message}
+          message : PAnsiChar; { human-readable informative error message}
           level : xmlErrorLevel; { how consequent is the error}
-          file_ : PChar; { the filename}
+          file_ : PAnsiChar; { the filename}
           line : Longint; { the line number if available}
-          str1 : PChar; { extra string information}
-          str2 : PChar; { extra string information}
-          str3 : PChar; { extra string information}
+          str1 : PAnsiChar; { extra string information}
+          str2 : PAnsiChar; { extra string information}
+          str3 : PAnsiChar; { extra string information}
           int1 : Longint; { extra number information}
           int2 : Longint; { column number of the error or 0 if N/A (todo: rename this field when we would break ABI)}
           ctxt : Pointer; { the parser context if available}
@@ -3507,7 +3507,7 @@ actually an xmlCharEncoding}
   procedure xmlRMutexUnlock (tok: xmlRMutexPtr); cdecl; external LIBXML2_SO;
   function xmlReadDoc (const cur: xmlCharPtr; const URL: PChar; const encoding: PChar; options: Longint) : xmlDocPtr; cdecl; external LIBXML2_SO;
   function xmlReadFd (fd: Longint; const URL: PChar; const encoding: PChar; options: Longint) : xmlDocPtr; cdecl; external LIBXML2_SO;
-  function xmlReadFile (const filename: PChar; const encoding: PChar; options: Longint) : xmlDocPtr; cdecl; external LIBXML2_SO;
+  function xmlReadFile (const filename: PAnsiChar; const encoding: PChar; options: Longint) : xmlDocPtr; cdecl; external LIBXML2_SO;
   function xmlReadIO (ioread: xmlInputReadCallback; ioclose: xmlInputCloseCallback; ioctx: Pointer; const URL: PChar; const encoding: PChar; options: Longint) : xmlDocPtr; cdecl; external LIBXML2_SO;
   function xmlReadMemory (const buffer: PChar; size: Longint; const URL: PChar; const encoding: PChar; options: Longint) : xmlDocPtr; cdecl; external LIBXML2_SO;
   function xmlReaderForDoc (const cur: xmlCharPtr; const URL: PChar; const encoding: PChar; options: Longint) : xmlTextReaderPtr; cdecl; external LIBXML2_SO;
@@ -3667,7 +3667,7 @@ actually an xmlCharEncoding}
   function xmlSchemaNewFacet () : xmlSchemaFacetPtr; cdecl; external LIBXML2_SO;
   function xmlSchemaNewMemParserCtxt (const buffer: PChar; size: Longint) : xmlSchemaParserCtxtPtr; cdecl; external LIBXML2_SO;
   function xmlSchemaNewNOTATIONValue (const name: xmlCharPtr; const ns: xmlCharPtr) : xmlSchemaValPtr; cdecl; external LIBXML2_SO;
-  function xmlSchemaNewParserCtxt (const URL: PChar) : xmlSchemaParserCtxtPtr; cdecl; external LIBXML2_SO;
+  function xmlSchemaNewParserCtxt (const URL: PAnsiChar) : xmlSchemaParserCtxtPtr; cdecl; external LIBXML2_SO;
   function xmlSchemaNewQNameValue (const namespaceName: xmlCharPtr; const localName: xmlCharPtr) : xmlSchemaValPtr; cdecl; external LIBXML2_SO;
   function xmlSchemaNewStringValue (type_: xmlSchemaValType; const value: xmlCharPtr) : xmlSchemaValPtr; cdecl; external LIBXML2_SO;
   function xmlSchemaNewValidCtxt (schema: xmlSchemaPtr) : xmlSchemaValidCtxtPtr; cdecl; external LIBXML2_SO;
