@@ -30,3 +30,5 @@ glob:*.dcp
 glob:demos/
 glob:doc/
 glob:utils/
+syntax: glob
+__history
